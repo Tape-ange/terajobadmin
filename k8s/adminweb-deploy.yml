@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adminweb
+  namespace: jobplatform
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: adminweb
+  template:
+    metadata:
+      labels:
+        app: adminweb
+    spec:
+      containers:
+      - name: adminweb
+        image: registry.advskill.com/terajob/adminweb:1.0
+        ports:
+          - containerPort: 5144
+            name: adminweb
+        # volumeMounts:
+        # - name: adminweb-persistent-storage
+        #   mountPath: /usr/src/app/server/public/uploads
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: harbor-cred
+      # volumes:
+      #   - name: adminweb-persistent-storage
+      #     persistentVolumeClaim:
+      #       claimName: adminweb-volumeclaim

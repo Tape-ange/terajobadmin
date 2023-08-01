@@ -1,0 +1,115 @@
+<div class="mat-elevation-z8 p-2">
+  <div class="container p-2">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Terajob" />
+  </div>
+  <table mat-table [dataSource]="dataSource">
+    <!-- Entreprise Column -->
+    <ng-container matColumnDef="Entreprise">
+      <th mat-header-cell *matHeaderCellDef>Entreprise</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.company.companyName }}
+      </td>
+    </ng-container>
+
+    <!-- Localisation Column -->
+    <ng-container matColumnDef="Localisation">
+      <th mat-header-cell *matHeaderCellDef>Localisation</th>
+      <td mat-cell *matCellDef="let element">{{ element.localisation }}</td>
+    </ng-container>
+
+    <!-- Date de creation Column -->
+    <ng-container matColumnDef="Date de creation">
+      <th mat-header-cell *matHeaderCellDef>Date de creation</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.createdDate | date : "yyyy-MM-dd" }}
+      </td>
+    </ng-container>
+
+    <!--Date debut Column -->
+    <ng-container matColumnDef="Date debut">
+      <th mat-header-cell *matHeaderCellDef>Date debut</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.startDate | date : "yyyy-MM-dd" }}
+      </td>
+    </ng-container>
+
+    <!--Date fin Column -->
+    <ng-container matColumnDef="Date fin">
+      <th mat-header-cell *matHeaderCellDef>Date fin</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.endDate | date : "yyyy-MM-dd" }}
+      </td>
+    </ng-container>
+
+    <!--TJM Column -->
+    <ng-container matColumnDef="TJM">
+      <th mat-header-cell *matHeaderCellDef>TJM</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.payAmount }} {{ element.currency }}
+      </td>
+    </ng-container>
+
+    <!-- statut Column -->
+    <ng-container matColumnDef="Statut">
+      <th mat-header-cell *matHeaderCellDef>statut</th>
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="element.blocked; else noBlocked">
+          <span class="badge p-2 text-bg-danger">Bloqué </span>
+        </ng-container>
+        <ng-template #noBlocked>
+          <span class="badge p-2 text-bg-success">Actif </span>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!--action Column -->
+    <ng-container matColumnDef="action" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>action</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="row">
+          <ng-container *ngIf="element?.blocked; else noBlock">
+            <div class="col-md-6">
+              <button
+                mat-button
+                class="unblocked"
+                (click)="dialogToUnblock(element._id)"
+              >
+                <mat-icon>lock_open</mat-icon>
+              </button>
+            </div>
+          </ng-container>
+
+          <ng-template #noBlock>
+            <div class="col-md-6">
+              <button
+                mat-button
+                class="block"
+                (click)="dialogToBlock(element._id)"
+              >
+                <mat-icon>lock</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- <button  >
+
+        </button> -->
+    <!-- <mat-icon (click)="onTenderArchived(element._id)"
+          >delete_outline</mat-icon
+        >
+      </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator> -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" stickyEnd></mat-paginator>
+</div>

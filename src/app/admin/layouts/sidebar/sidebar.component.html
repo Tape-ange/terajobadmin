@@ -1,0 +1,195 @@
+<div class="sidebar-content">
+  <ul class="lists">
+    <li class="list">
+      <a
+        href="#"
+        class="nav-link"
+        routerLink="/admin/dashboard"
+        routerLinkActive="active_link"
+      >
+        <i class="bx bx-home-alt icon"></i>
+        <span class="link">Tableau de board</span>
+      </a>
+    </li>
+    <mat-accordion class="app-nav-accordion">
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <li class="list">
+              <a
+                class="look"
+                routerLinkActive=""
+
+
+              >
+                <i class="bx bx-bell icon"></i>
+                <span class="link">Utilisateurs</span>
+              </a>
+            </li></mat-panel-title
+          >
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+             <li class="sousList">
+        <a
+          class="nav-link"
+          routerLink="/admin/user/list"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-bell icon"></i>
+          <span class="link">Tous les Utilisateurs</span>
+        </a>
+      </li>
+      <li class="sousList">
+        <a
+          class="nav-link"
+          routerLink="/admin/user/consultantList"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-bell icon"></i>
+          <span class="link">Consultants</span>
+        </a>
+      </li>
+      <li class="sousList">
+        <a
+          class="nav-link"
+          routerLink="/admin/user/patnerList"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-bell icon"></i>
+          <span class="link">Partenaires</span>
+        </a>
+      </li>
+      <li class="sousList">
+        <a
+          class="nav-link"
+          routerLink="/admin/user/customerList"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-bell icon"></i>
+          <span class="link">Clients</span>
+        </a>
+      </li>
+
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+
+    <li class="list">
+      <a
+        href="#"
+        class="nav-link"
+        routerLink="/admin/tender/list"
+        routerLinkActive="active_link"
+      >
+        <i class="bx bx-message-rounded icon"></i>
+        <span class="link">Appels d'offres</span>
+      </a>
+    </li>
+    <!-- *ngIf="user?.accountType === 'super_admin' " -->
+    <ng-container *ngIf="user?.accountType === 'super_admin'">
+
+      <mat-accordion class="app-nav-accordion">
+        <mat-expansion-panel >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <li class="list">
+                <a
+                  class="look"
+                  routerLinkActive=""
+  
+  
+                >
+                  <i class="bx bx-bell icon"></i>
+                  <span class="link">Créer un compte</span>
+                </a>
+              </li></mat-panel-title
+            >
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+               <li class="sousList">
+          <a
+            class="nav-link"
+            routerLink="/admin/user/add"
+            routerLinkActive="active_link"
+          >
+            <i class="bx bx-bell icon"></i>
+            <span class="link">Compte partenaire </span>
+          </a>
+        </li>
+        <li class="sousList">
+          <a
+            class="nav-link"
+            routerLink="/admin/backOffice/resfisterCommercialBo"
+            routerLinkActive="active_link"
+          >
+            <i class="bx bx-bell icon"></i>
+            <span class="link">Compte commercial Bo</span>
+          </a>
+        </li>
+        
+       
+  
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <!-- <li class="list">
+        <a
+          href="#"
+          class="nav-link"
+          routerLink="/admin/backOffice/resfisterCommercialBo"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-message-rounded icon"></i>
+          <span class="link">Enregistrer un Commercial Bo</span>
+        </a>
+      </li> -->
+      <li class="list">
+        <a
+          href="#"
+          class="nav-link"
+          routerLink="/admin/backOffice/listCommercialBo"
+          routerLinkActive="active_link"
+        >
+          <i class="bx bx-message-rounded icon"></i>
+          <span class="link">Liste Commercial Bo</span>
+        </a>
+      </li>
+    </ng-container>
+    <!-- <li class="list">
+          <a href="#" class="nav-link">
+            <i class="bx bx-pie-chart-alt-2 icon"></i>
+            <span class="link">Analytics</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#" class="nav-link">
+            <i class="bx bx-heart icon"></i>
+            <span class="link">Likes</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="#" class="nav-link">
+            <i class="bx bx-folder-open icon"></i>
+            <span class="link">Files</span>
+          </a>
+        </li> -->
+  </ul>
+
+  <div class="bottom-cotent">
+    <!-- <li class="list">
+          <a href="#" class="nav-link">
+            <i class="bx bx-cog icon"></i>
+            <span class="link">Profil</span>
+          </a>
+        </li> -->
+    <li class="list">
+      <a class="nav-link">
+        <i class="bx bx-log-out icon"></i>
+        <span class="link" (click)="logout()">Se déconnecter</span>
+      </a>
+    </li>
+  </div>
+</div>

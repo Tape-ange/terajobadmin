@@ -1,0 +1,56 @@
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="center_form">
+                <div class="text-center">
+                    <h1> Enregistrer un commercial Bo </h1>
+                </div>
+                <form [formGroup]="registerForm" >
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="civility">civility: </label>
+                            <input placeholder="Mr" type="civility" name="civility" id="civility"
+                                formControlName="civility">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="firstname">Nom: </label>
+                            <input placeholder="Inserer le nom" type="firstname" name="firstname" id="firstname"
+                                formControlName="firstname">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastname">Prenom: </label>
+                            <input placeholder="Inserer le prenom" type="lastname" name="lastname" id="lastname"
+                                formControlName="lastname">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="phone">phone</label>
+                            <input placeholder="Inserer le numéro de téléphone" type="number" name="phone" id="phone"
+                                formControlName="phone">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password">Mot de passe</label>
+                            <input placeholder="Inserer le password" type="password" name="password" id="password"
+                                formControlName="password">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <input placeholder="Inserer le email" type="email" name="email" id="email"
+                                formControlName="email">
+                        </div>
+
+                    </div>
+                    <div class=" bouton">
+                        <div class="">
+                            <button  type="submit" (click)="createCommercialBo()"> Enregistrer </button>
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>

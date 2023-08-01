@@ -1,0 +1,37 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: admin-web-http
+  namespace: jobplatform
+spec:
+  entryPoints:
+    - web
+  routes:
+  - kind: Rule
+    match: Host(`adminweb-dev.terajob.com`)
+    middlewares:
+    - name: https-only
+    priority: 10
+    services:
+    - name: adminweb
+      namespace: jobplatform
+      port: 5144
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: admin-web-https
+  namespace: jobplatform
+spec:
+  entryPoints:
+    - secure
+  routes:
+  - kind: Rule
+    match: Host(`adminweb-dev.terajob.com`)
+    priority: 10
+    services:
+    - name: adminweb
+      namespace: jobplatform
+      port: 5144
+  tls:
+    secretName: admin-web-dev-cert

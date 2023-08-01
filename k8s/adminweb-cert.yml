@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: admin-web-dev-cert
+  namespace: jobplatform
+spec:
+  secretName: admin-web-dev-cert
+  issuerRef:
+    name: letsencrypt-prod
+  dnsNames:
+  - adminweb-dev.terajob.com
+  commonName: adminweb-dev.terajob.com

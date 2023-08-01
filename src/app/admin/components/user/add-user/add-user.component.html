@@ -1,0 +1,132 @@
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="">
+                <div class="text-center">
+                    <h1> Créer un Compte Partenaire </h1>
+                </div>
+                <form [formGroup]="registerPartnerForm"  >
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label for="companyName"> Le nom de la société : </label>
+                            <input placeholder="Advskill" formControlName="companyName" required >
+                        </div>
+                        <div class="col-md-6">
+                            <label for="subscriptionType">Type de subscription: </label>
+                            
+                            <select class=""   formControlName="subscriptionType" >
+                               
+                                <option value="life_pack">Gratuit à vie</option>
+                                <option value="trial_pack">Pack 1 mois</option>
+                                <!-- <option value="quaterly_pack">Pack 4mois</option> -->
+                               
+                              </select>
+                           
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <label for="legalForm">Forme Légal :  </label>
+                            <!-- <input placeholder="SA"  formControlName="legalForm" > -->
+                            <select   formControlName="legalForm">
+                                <!-- <option selected>Forme légal</option> -->
+                                <option value="auto">Auto-entrepreneur</option>
+                                <option value="ei">Entreprise individuelle</option>
+                                <option value="eurl">EURL</option>
+                                <option value="gie">GIE</option>
+                                <option value="sa">SA</option>
+                                <option value="sas">SAS</option>
+                                <option value="sasu">SASU</option>
+                                <option value="sarl">SARL</option>
+                              </select>
+                            
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="siret">Siret :</label>
+                            <input placeholder="Inserer le numéro de Siret"
+                                formControlName="siret"    />
+                     
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone">Numéro de téléphone :</label>
+                            <input placeholder="Inserer le Numéro de téléphone" 
+                                formControlName="phone"   />
+                      
+                        </div>
+                        <div class="col-md-6">
+                            <label for="accountStatus">Type de compte</label>
+                            <!-- <input formControlName="accountStatus"   /> -->
+                            <select  formControlName="accountStatus" >
+                                <!-- <option selected>Civilité</option> -->
+                                <option value="esn">ESN</option>
+                                <option value="portage">Portage</option>
+                                
+                              </select>
+                            
+                        </div>
+                        <div class="col-md-6">
+                            <label for="civility">Civilité: </label>
+                            <!-- <input formControlName="civility"   /> -->
+                            <select class=""   formControlName="civility" >
+                                <!-- <option selected>Civilité</option> -->
+                                <option value="miss">Mademoiselle</option>
+                                <option value="madame">Madame</option>
+                                <option value="mister">Monsieur</option>
+                                <option value="master">Maitre</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="professor">Professeur</option>
+                              </select>
+                           
+                           
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastname">Nom:</label>
+                            <input placeholder="Inserer le nom" formControlName="lastname"  />
+                            
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for="firstname">Prénom</label>
+                            <input placeholder="Inserer le prénom" formControlName="firstname"   />
+                         
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <input placeholder="Inserer le email" type="email" name="email"  formControlName="email"   />
+                           
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="password">Mot de passe :</label>
+                            <input placeholder="Inserer le mot de passe " formControlName="password"   />
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <label for="passwordConfirmPartner">Répéter le Mot de passe :</label>
+                            <input placeholder="Repéter le mot de passe" type="password" formControlName="passwordConfirmPartner">
+                            <mat-error *ngIf="registerPartnerForm.get('passwordConfirmPartner').hasError(' ')">
+                               Mot de passe différent
+                            </mat-error>
+                            <mat-error *ngIf="
+                            !registerPartnerForm.get('passwordConfirmPartner').hasError(' ') &&
+                            registerPartnerForm.get('passwordConfirmPartner').hasError('passwordsNotMatching')
+                          ">
+                            Mot de passe obligatoire
+                                </mat-error>
+                        </div> -->
+
+                    </div>
+                    <div class=" bouton">
+                        <div class="">
+                       
+                            <button  (click)=" registerPartner()"   [disabled]="registerPartnerForm.invalid" > Enregistrer </button>
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>

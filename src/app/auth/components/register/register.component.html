@@ -1,0 +1,40 @@
+<section class="center_form">
+  <div class="container">
+    <div class="row">
+      <div>
+        <div>
+          <h1> S'inscrire </h1>
+        </div>
+        <form [formGroup]="registerForm">
+          <div>
+            <label for="name">Nom: </label>
+            <input placeholder="Inserer votre nom" type="name" name="name" id="name" formControlName="firstname">
+          </div>
+          <div>
+            <label for="name">lastname: </label>
+            <input placeholder="Inserer votre nom" type="name" name="name" id="name" formControlName="lastname">
+          </div>
+          <div>
+            <label for="email"></label>
+            <input placeholder="Inserer votre email" type="email" name="email" id="email" formControlName="email">
+          </div>
+          <div>
+            <label for="email">phone</label>
+            <input placeholder="Inserer votre phone" type="text" name="email" id="email" formControlName="phone">
+          </div>
+          <div>
+            <label for="password"></label>
+            <input placeholder="Inserer votre password" type="password" name="password" id="password" formControlName="password">
+          </div>
+          <div>
+            <button type="submit" (click)="onSignUp()"> S'inscrire </button>
+          </div>
+        </form>
+
+        <!-- <p>
+          Vous avez déjà un compte ? <a routerLink="/auth/login"> Se connecter</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</section>

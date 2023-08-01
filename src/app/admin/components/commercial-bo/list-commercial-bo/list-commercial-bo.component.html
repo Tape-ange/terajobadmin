@@ -1,0 +1,77 @@
+<div class="mat-elevation-z8 p-2">
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- nom Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nom</th>
+      <td mat-cell *matCellDef="let row">{{ row?.firstname }}</td>
+    </ng-container>
+
+    <!-- prenom Column -->
+    <ng-container matColumnDef="prenom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prénom</th>
+      <td mat-cell *matCellDef="let row">{{ row?.lastname }}</td>
+    </ng-container>
+
+    <!-- telephone Column -->
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Téléphone</th>
+      <td mat-cell *matCellDef="let row">{{ row?.phone }}</td>
+    </ng-container>
+
+    <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{ row?.email }}</td>
+    </ng-container>
+
+    <!-- type de compte Column -->
+    <ng-container matColumnDef="type de compte">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type de compte</th>
+      <td mat-cell *matCellDef="let row">{{ row?.accountType }}</td>
+    </ng-container>
+
+    <!-- statut Column -->
+    <ng-container matColumnDef="Statut">
+      <th mat-header-cell *matHeaderCellDef>statut</th>
+      <td mat-cell *matCellDef="let row">
+        <ng-container *ngIf="row.blocked; else noBlocked">
+          <span class="badge p-2 text-bg-danger">Bloqué </span>
+        </ng-container>
+        <ng-template #noBlocked>
+          <span class="badge p-2 text-bg-success">Actif </span>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!--action Column -->
+    <ng-container matColumnDef="action" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>action</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="row">
+          <ng-container *ngIf="row?.blocked; else noBlock">
+            <div class="col-md-6">
+              <button mat-button class="unblocked" matTooltip="Débloquer le Bo" (click)="dialogToUnblock(row.keycloakId)">
+                <!-- " -->
+                <mat-icon>lock_open</mat-icon>
+              </button>
+            </div>
+          </ng-container>
+
+          <ng-template #noBlock>
+            <div class="col-md-6">
+              <button mat-button class="block" matTooltip="Bloquer le Bo" (click)="dialogToBlock(row.keycloakId)">
+                <!-- ( -->
+                <mat-icon>lock</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" stickyEnd></mat-paginator>
+</div>

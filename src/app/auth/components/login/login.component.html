@@ -1,0 +1,31 @@
+<section class="center_form ">
+  <div class="container">
+    <div class="row">
+      <div>
+        <div>
+          <h3 class="text-h3"> Se connecter </h3>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSignIn()">
+          <div>
+            <label for="email">Email :</label>
+            <input placeholder="Inserez votre email" type="email" name="email" id="email" formControlName="email">
+          </div>
+          <div class="mt-2">
+            <label for="password">Mot de passe :</label>
+            <input placeholder="Inserez votre password" type="password" name="password" id="password" formControlName="password">
+            <!-- <a routerLink="/auth/reset-password" class="pull-right">Mot de passe oublié ?</a> -->
+          </div>
+          <div>
+            <!-- <button type="submit" (click)="login()"> Se connecter </button> -->
+            <button type="submit" > Se connecter </button>
+          </div>
+
+        </form>
+
+        <!-- <p>
+          Vous n'avez pas un compte ? <a routerLink="/auth/register"> S'inscrire</a>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</section>

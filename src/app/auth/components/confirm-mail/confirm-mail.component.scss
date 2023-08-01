@@ -1,0 +1,277 @@
+
+
+.divBienvenue{
+    margin: auto;
+    width: 50%;
+}
+
+.head-text {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  /* or 158% */
+
+  letter-spacing: -0.03em;
+  color: #353535;
+}
+
+.head-text-2 {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  //line-height: 101px;
+  /* or 158% */
+
+  letter-spacing: -0.01em;
+
+  color: #be529a;
+}
+
+.btn-mail {
+  width: 270px;
+  height: 60px;
+  left: 0px;
+  top: 622px;
+  background: #a10068;
+  border-radius: 65px;
+  border: none;
+  text-align: center;
+}
+
+.btn-text {
+  font-family: 'Fira Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  letter-spacing: -0.01em;
+
+  color: #ffffff;
+}
+
+.subtitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 42px;
+  /* or 233% */
+
+  letter-spacing: 0.015em;
+
+  color: #353535;
+}
+
+.img-justify {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.oval {
+  // background-color: #F9EEF5;
+  width: 50%;
+  height: 100vh;
+  border-radius: 100% / 50%;
+  border-radius: 34% 0% / 0% 50%;
+  border-bottom-left-radius: 0;
+}
+
+.illustration-pos {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  line-height: normal;
+  width: 300px;
+  height: 300px;
+  margin-top: 75px;
+}
+
+.logo-style {
+  width: 150px;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .logo-style {
+    width: 200px;
+    height: auto;
+  }
+
+  .head-text {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 45px;
+    /* or 158% */
+
+    letter-spacing: -0.03em;
+    color: #353535;
+  }
+
+  .head-text-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 45px;
+    /* or 158% */
+
+    letter-spacing: -0.01em;
+
+    color: #be529a;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .logo-style {
+    width: 200px;
+    height: auto;
+  }
+
+  .head-text {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 35px;
+    line-height: 45px;
+    /* or 158% */
+
+    letter-spacing: -0.03em;
+    color: #353535;
+  }
+
+  .head-text-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 45px;
+    /* or 158% */
+
+    letter-spacing: -0.01em;
+
+    color: #be529a;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .logo-style {
+    width: 300px;
+    height: auto;
+  }
+
+  .head-text {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 50px;
+    /* or 158% */
+
+    letter-spacing: -0.03em;
+    color: #353535;
+  }
+
+  .head-text-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    /* or 158% */
+
+    letter-spacing: -0.01em;
+
+    color: #be529a;
+  }
+
+  .illustration-pos {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .logo-style {
+    width: 200px;
+    height: auto;
+  }
+
+  .head-text {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 101px;
+    /* or 158% */
+
+    letter-spacing: -0.03em;
+    color: #353535;
+  }
+
+  .head-text-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 101px;
+    /* or 158% */
+
+    letter-spacing: -0.01em;
+
+    color: #be529a;
+  }
+
+  .illustration-pos {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+  .logo-style {
+    width: 300px;
+    height: 300px;
+  }
+
+  .head-text {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 64px;
+    line-height: 101px;
+    /* or 158% */
+
+    letter-spacing: -0.03em;
+    color: #353535;
+  }
+
+  .head-text-2 {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 101px;
+    /* or 158% */
+
+    letter-spacing: -0.01em;
+
+    color: #be529a;
+  }
+
+  .illustration-pos {
+    margin-top: 140px;
+    width: 500px;
+    height: 500px;
+  }
+}

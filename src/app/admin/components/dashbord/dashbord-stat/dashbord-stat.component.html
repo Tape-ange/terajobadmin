@@ -1,0 +1,108 @@
+<div id="dashboard-super-admin" class="page-layout simple">
+    <!-- HEADER -->
+    <div class="header accent p-16" fxLayout="column" fxLayoutAlign="center center">
+        <div class="hero-text">
+            <mat-icon class="hero-icon">school</mat-icon>
+
+            <ng-container *ngIf="userConnected.accountType === 'commercial'; else admin">
+                <h1 >
+                    Bienvenue au Commercial Bo
+                </h1>
+            </ng-container>
+            <ng-template #admin>
+                <h1 >
+                    Bienvenue au super admin
+                </h1>
+            </ng-template>
+
+            <h3 >
+                Interface d'administration de la plateforme
+            </h3>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <div class="content">
+        <div class=" " fxFlex="100">
+            <div class="mr-lg-32 mb-20 row">
+                <!--<div class="pb-24 font-size-18 font-weight-300">
+                    How are your active users trending over time?
+                </div>-->
+
+                <div class="row">
+
+                    <!-- Widget 2 -->
+                    <div class="widget col-md-6">
+                        <div class="fuse-card auto-width mb-32 mr-20 my-4" mat-elevation-z8>
+                            <div class=" row p-16 " fxLayout="row wrap" fxLayoutAlign="start end">
+                                <div class="col-md-8 pb-16">
+                                    <div class="font-size-20 secondary-text">Nombre d'utilisateurs</div>
+                                    <div class=" length line-height-1 mt-8">
+                                        {{ lengthUser }}
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 pb-16 ">
+                                    <button   mat-button matTooltip="En savoir plus" [routerLink]="['/admin/user/list']" >
+
+                                        <mat-icon >arrow_right_alt
+                                        </mat-icon>
+                                    </button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / Widget 2 -->
+
+                    <!-- Widget 3 -->
+                    <div class="widget col-md-6">
+                        <div class="fuse-card auto-width mb-32 mr-20 my-4 ">
+                            <div class="row p-16 " fxLayout="row wrap" fxLayoutAlign="start end">
+                                <div class=" col-md-8 pb-16">
+                                    <div class="font-size-20 secondary-text">Nombres de Commercial Bo</div>
+                                    <div class=" length  line-height-1 mt-8">
+                                        {{ lengthBo }}
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 pb-16 ">
+                                    <button mat-button matTooltip="En savoir plus" mat-button [routerLink]="['/admin/user/list']">
+                                        <!-- En savoir plus -->
+                                        <mat-icon >arrow_right_alt</mat-icon>
+                                    </button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / Widget 3 -->
+
+                    <!-- Widget 4 -->
+                    <div class="widget col-md-6">
+                        <div class="fuse-card auto-width mb-32 mr-20 my-4">
+                            <div class="row p-16 " fxLayout="row wrap" fxLayoutAlign="start end">
+                                <div class=" col-md-8 pb-16">
+                                    <div class="font-size-20 secondary-text">Nombre de AO</div>
+                                    <div class="length line-height-1 mt-8">
+                                        {{ lengthTender}}
+                                    </div>
+                                </div>
+                                <div class=" col-md-4 pb-16 ">
+                                    <button mat-button matTooltip="En savoir plus" [routerLink]="['/admin/tender/list']">
+
+                                        <mat-icon >arrow_right_alt</mat-icon>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / Widget 4 -->
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>

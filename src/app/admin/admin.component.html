@@ -1,0 +1,52 @@
+<!--
+ -->
+
+<ng-container>
+
+    <mat-toolbar class="example-header">
+      <div class="row w-100 justify-content-between m-0 p-1 "  >
+        <div class="col-3 header" >
+          <app-navbar></app-navbar>
+        </div>
+        <div class="col-6 text-end toogleIcon" >
+          <!-- <button mat-button (click)="sidenav.toggle()">
+          </button> -->
+
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+
+
+
+        </div>
+      </div>
+      <!-- <app-navbar></app-navbar> -->
+      <!-- <p mat-button (click)="sidenav.toggle()" >Toggle</p> -->
+    </mat-toolbar>
+
+
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      opened
+      class="example-sidenav p-4"
+      [fixedInViewport]="options.value.fixed"
+      [fixedTopGap]="options.value.top"
+      [fixedBottomGap]="options.value.bottom"
+    >
+      <!-- {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} -->
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+
+    <mat-sidenav-content [formGroup]="options">
+      <!-- <p><mat-checkbox formControlName="fixed"> <router-outlet></router-outlet></mat-checkbox></p>
+
+      <p></p> -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <mat-toolbar class="example-footer">
+    <app-footer></app-footer>
+  </mat-toolbar>
+</ng-container>

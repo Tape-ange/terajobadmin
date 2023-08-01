@@ -1,0 +1,73 @@
+---
+variables:
+  APP_NAME: adminweb
+  CONTAINER_IMAGE: ${APP_NAME}:${CI_COMMIT_SHORT_SHA}
+  HB_USER: ${REGISTRY_USER}
+  DOCKER_DRIVER: overlay
+  DOCKER_TLS_CERTDIR: ""
+  GIT_DEPTH: 0
+
+stages:
+  - build
+  - deploy
+
+#BUILD
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - echo ${REGISTRY_PASSWORD} | docker login ${REGISTRY_URL} -u ${HB_USER} --password-stdin
+  script:
+    - docker build -t ${CONTAINER_IMAGE} --build-arg environment=develop .
+    - docker tag ${CONTAINER_IMAGE} ${REGISTRY_URL}/terajob/${CONTAINER_IMAGE}
+    - docker push ${REGISTRY_URL}/terajob/${CONTAINER_IMAGE}
+  only:
+    - develop
+    - staging
+    - production
+
+#DEPLOY
+image: google/cloud-sdk:278.0.0
+services:
+  - docker:google/cloud-sdk
+
+# Deploy on dev
+deploy_dev:
+  stage: deploy
+  variables:
+    LOCAL_DEV: "$API_KEY"
+  script:
+    - echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials advskill-dev-cluster --region europe-west1 --project advskill-225022
+    - kubectl config set-context --current --namespace=jobplatform
+    - kubectl --record deployment.apps/${APP_NAME} set image deployment.v1.apps/${APP_NAME} ${APP_NAME}=${REGISTRY_URL}/terajob/${CONTAINER_IMAGE}
+  only:
+    - develop
+
+# Deploy on staging
+deploy_staging:
+  stage: deploy
+  script:
+    - echo $GCLOUD_SERVICE_STG_KEY > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials advskill-dev-cluster --region europe-west1 --project advskill-225022
+    - kubectl config set-context --current --namespace=staging
+    - kubectl --record deployment.apps/${APP_NAME} set image deployment.v1.apps/${APP_NAME} ${APP_NAME}=${REGISTRY_URL}/terajob/${CONTAINER_IMAGE}
+  only:
+    - staging
+
+# Deploy on production
+deploy_prod:
+  stage: deploy
+  script:
+    - echo $GCLOUD_SERVICE_PRD_KEY > ${HOME}/gcloud-service-key.json
+    - gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+    - gcloud container clusters get-credentials advskill-dev-cluster --region europe-west1 --project advskill-225022
+    - kubectl config set-context --current --namespace=production
+    - kubectl --record deployment.apps/${APP_NAME} set image deployment.v1.apps/${APP_NAME} ${APP_NAME}=${REGISTRY_URL}/terajob/${CONTAINER_IMAGE}
+  only:
+   - production
+  when: manual
